@@ -5,14 +5,13 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI lifeState;
-    public float currentTime = 0f;
-    public float timer;
     public GameObject objective;
     public Vector2 speedReference;
+    public float currentTime = 0f;
+    public float timer;
     public int energy;
     
     void Update()

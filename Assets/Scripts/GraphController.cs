@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GraphController : MonoBehaviour
 {
-    public GameObject nodePrefabs;
-    public TextAsset nodePositionTxt;
-    public string[] arrayNodePositions;
-    public string[] currentNodePositions;
     public List<GameObject> allNodes;
-    public TextAsset nodeConectionsTxt;
-    public string[] arrayNodeConections;
-    public string[] currentNodeConections;
     public EnemyController enemy;
+    public GameObject nodePrefabs;
+    public TextAsset nodeConectionsTxt;
+    public TextAsset nodePositionTxt;
+    public string[] currentNodeConections;
+    public string[] currentNodePositions;
+    public string[] arrayNodeConections;
+    public string[] arrayNodePositions;
     public int initialIndex;
 
     void Start()

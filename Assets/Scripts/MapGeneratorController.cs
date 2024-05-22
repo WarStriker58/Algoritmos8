@@ -6,9 +6,9 @@ public class MapGeneratorController : MonoBehaviour
 {
     public GameObject groundPrefab;
     public TextAsset mapTxt;
-    public string[] allMapString;
-    private string[] currentLineString;
     public Vector2 initialPosition;
+    private string[] currentLineString;
+    public string[] allMapString;
     public float posSeparation;
 
     private void Awake()

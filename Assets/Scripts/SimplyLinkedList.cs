@@ -67,7 +67,7 @@ public class SimplyLinkedList<T>
         }
         else if (position >= length)
         {
-            Console.WriteLine(" la posicion no existe ");
+            Console.WriteLine("La posicion no existe.");
         }
         else
         {
@@ -90,7 +90,7 @@ public class SimplyLinkedList<T>
     {
         if (Head == null)
         {
-            Console.WriteLine(" no se puede ");
+            Console.WriteLine("No se puede modificar.");
         }
         else
         {
@@ -127,7 +127,7 @@ public class SimplyLinkedList<T>
         }
         else if (position >= length)
         {
-            Console.WriteLine(" la posicion no existe ");
+            Console.WriteLine("La posicion no existe.");
         }
         else
         {
@@ -146,7 +146,7 @@ public class SimplyLinkedList<T>
     {
         if (Head == null)
         {
-            throw new Exception(" la lista está vacia ");
+            throw new Exception("La lista esta vacia.");
         }
         else
         {
@@ -183,7 +183,7 @@ public class SimplyLinkedList<T>
         }
         else if (position >= length)
         {
-            throw new Exception(" la posicion no existe ");
+            throw new Exception("La posicion no existe.");
         }
         else
         {
@@ -202,7 +202,7 @@ public class SimplyLinkedList<T>
     {
         if (Head == null)
         {
-            throw new Exception(" la lista está vacia.");
+            throw new Exception("La lista esta vacia.");
         }
         else
         {
@@ -245,7 +245,7 @@ public class SimplyLinkedList<T>
         }
         else if (position >= length)
         {
-            throw new Exception(" la posicion no existe ");
+            throw new Exception("La posicion no existe.");
         }
         else
         {
@@ -270,11 +270,11 @@ public class SimplyLinkedList<T>
     {
         if (length > 0)
         {
-            Console.WriteLine(" capacidad de la lista: " + length);
+            Console.WriteLine("Capacidad de la lista: " + length);
         }
         else
         {
-            Console.WriteLine(" la lista está vacia ");
+            Console.WriteLine("La lista esta vacia.");
         }
 
     }
@@ -283,7 +283,7 @@ public class SimplyLinkedList<T>
     {
         if (Head == null)
         {
-            throw new Exception(" la lista está vacia ");
+            throw new Exception("La lista esta vacia.");
         }
         else
         {
@@ -299,7 +299,7 @@ public class SimplyLinkedList<T>
         }
         else if (position >= length - 1)
         {
-            throw new Exception(" el posterior a la última posicion no existe ");
+            throw new Exception("El nodo que sigue a la ultima posicion no existe.");
         }
         else
         {
