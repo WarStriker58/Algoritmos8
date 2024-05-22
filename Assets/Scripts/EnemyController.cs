@@ -1,22 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
+
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI lifeState;
+    public float currentTime = 0f;
+    public float timer;
     public GameObject objective;
     public Vector2 speedReference;
+    public int energy;
     
     void Update()
     {
-        transform.position = Vector2.SmoothDamp(transform.position, objective.transform.position, ref speedReference, 0.5f);
+        if (energy > 0)
+        {
+            transform.position = Vector2.SmoothDamp(transform.position, objective.transform.position, ref speedReference, 0.5f);
+        }
+        else if (energy <= 0)
+        {
+            transform.position = Vector2.zero;
+            currentTime = currentTime + Time.deltaTime;
+            if (currentTime >= timer)
+            {
+                energy = 30;
+                currentTime = 0;
+            }
+        }
+        SetLifeText();
     }
-    
+
+    public void SetLifeText()
+    {
+        lifeState.text = " Energy: " + energy;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Node") 
+        if (collision.gameObject.tag == "Node")
         {
             objective = collision.gameObject.GetComponent<NodeController>().SelecRandomAdjancent().gameObject;
+            int weight = objective.GetComponent<NodeController>().GetNodeWeight();
+            RestLife(weight);
         }
+    }
+
+    public void RestLife(int weight)
+    {
+        energy = energy - weight;
     }
 }

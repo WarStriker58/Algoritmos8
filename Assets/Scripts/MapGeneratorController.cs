@@ -13,16 +13,16 @@ public class MapGeneratorController : MonoBehaviour
 
     private void Awake()
     {
-        if(mapTxt != null)
+        if (mapTxt != null)
         {
             allMapString = mapTxt.text.Split('\n');
-            for(int i = 0; i < allMapString.Length; i++)
+            for (int i = 0; i < allMapString.Length; i++)
             {
                 currentLineString = allMapString[i].Split(",");
-                for(int j = 0; j < currentLineString.Length; j++)
+                for (int j = 0; j < currentLineString.Length; j++)
                 {
                     Vector2 position = new Vector2(initialPosition.x + posSeparation * j, initialPosition.y - posSeparation * i);
-                    GameObject tmp = Instantiate(groundPrefab,position, transform.rotation);
+                    GameObject tmp = Instantiate(groundPrefab, position, transform.rotation);
                     tmp.transform.SetParent(this.gameObject.transform);
                 }
             }

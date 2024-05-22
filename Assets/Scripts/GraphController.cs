@@ -13,7 +13,8 @@ public class GraphController : MonoBehaviour
     public string[] arrayNodeConections;
     public string[] currentNodeConections;
     public EnemyController enemy;
-    
+    public int initialIndex;
+
     void Start()
     {
         CreateNode();
@@ -31,6 +32,8 @@ public class GraphController : MonoBehaviour
                 currentNodePositions = arrayNodePositions[i].Split(',');
                 Vector2 position = new Vector2(float.Parse(currentNodePositions[0]), float.Parse(currentNodePositions[1]));
                 GameObject tmp = Instantiate(nodePrefabs, position, transform.rotation);
+                NodeController currentNode = tmp.GetComponent<NodeController>();
+                currentNode.SetWeight((i + 2));
                 allNodes.Add(tmp);
             }
         }
@@ -38,23 +41,23 @@ public class GraphController : MonoBehaviour
 
     void CreateConnections()
     {
-        if(nodeConectionsTxt != null)
+        if (nodeConectionsTxt != null)
         {
             arrayNodeConections = nodeConectionsTxt.text.Split("\n");
-            for(int i = 0;i < arrayNodeConections.Length; i++)
+            for (int i = 0; i < arrayNodeConections.Length; i++)
             {
                 currentNodeConections = arrayNodeConections[i].Split(",");
-                for(int j = 0; j < currentNodeConections.Length; j++)
+                for (int j = 0; j < currentNodeConections.Length; j++)
                 {
                     allNodes[i].GetComponent<NodeController>().AddAdjacentNode(allNodes[int.Parse(currentNodeConections[j])].GetComponent<NodeController>());
                 }
             }
         }
     }
-    
+
     void SelecInitialNode()
     {
-        int index = Random.Range(0, allNodes.Count);
-        enemy.objective = allNodes[index];
+        initialIndex = Random.Range(0, allNodes.Count);
+        enemy.objective = allNodes[initialIndex];
     }
 }
